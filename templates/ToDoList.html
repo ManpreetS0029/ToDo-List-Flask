@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<a class="navbar-brand" href="{{url_for('todo')}}">ToDoList</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+
+        <a class="nav-link" href="{{url_for('main')}}">Add Tasks <span class="sr-only">(current)</span></a>
+
+      </li>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+
+        <a class="nav-link" href="{{url_for('for_list')}}">Add List <span class="sr-only">(current)</span></a>
+
+      </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+
+        <a class="nav-link" href="{{url_for('for_group')}}">Add Group<span class="sr-only">(current)</span></a>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+<div class="content">
+
+    <h1 class="mt-2 ml-2">To Do List</h1>
+
+    <table class="table">
+    
+        <thead class="thead-dark">
+        
+        <tr>
+            
+            <th scope="col">#</th>
+            <th scope="col">Tasks</th>
+            <th scope="col">Added</th>
+            <th scope="col">Important</th>
+            <th scope="col">Actions</th>
+        
+        </tr>
+        
+    </thead>
+    
+    <tbody>
+        
+        <tr>
+        
+            {% for row in data %}
+            
+            <td>{{ row.0 }}</td>
+
+            <td>{{ row.1 }}</td>
+
+            <td>{{ row.2 }}</td>
+
+            <td>{{ row.5 }}</td>
+
+            <td>
+               
+                <a href="/update/{{row.0}}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Update</a>
+               
+                <a href="/delete/{{row.0}}" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Delete</a>
+
+            </td>
+        
+        </tr>
+        
+        {% endfor %}
+    
+    </tbody>
+    
+</table>
+
+
+
+</div>
+
+{% endblock %}

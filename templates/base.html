@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css?ver=1')}}">
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-4.3.1-dist/css/bootstrap.css')}}">
+
+    <link href="{{url_for('static',filename='Material-Time-Picker-Plugin-jQuery-MDTimePicker/mdtimepicker.css')}}" rel="stylesheet">
+
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+<script src="{{url_for('static',filename='jquery/jquery-3.5.1.js')}}"></script>
+<script src="{{url_for('static',filename='Material-Time-Picker-Plugin-jQuery-MDTimePicker/mdtimepicker.js')}}"></script>
+<script>
+    $(document).ready(function(){
+  $('#timepicker').mdtimepicker(); 
+  });
+  </script>
+</html>
